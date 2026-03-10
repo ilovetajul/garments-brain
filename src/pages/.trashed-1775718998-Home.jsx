@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import {
   ArrowRight, BookOpen, Award, Users, CheckCircle,
@@ -7,7 +7,6 @@ import {
 import PostCard from '@/components/blog/PostCard'
 import { SectionHead } from '@/components/ui'
 import { DUMMY_POSTS, MFG_STEPS } from '@/data/seed'
-import { stepsApi } from '@/lib/supabase'
 
 /* ─── Accordion item ─── */
 function Step({ data, open, onToggle }) {
@@ -65,20 +64,7 @@ function FeatCard({ icon: Icon, title, desc, idx }) {
 
 export default function Home() {
   const [activeStep, setActiveStep] = useState(0)
-  const [steps, setSteps] = useState([])
   const recent = DUMMY_POSTS.slice(0, 4)
-
-  useEffect(() => {
-    stepsApi.getActive()
-      .then(data => setSteps(data.length ? data : MFG_STEPS.map(s => ({
-        id: s.step, step_number: s.step, title: s.title,
-        icon: s.icon, summary: s.summary, description: s.desc, points: s.points,
-      }))))
-      .catch(() => setSteps(MFG_STEPS.map(s => ({
-        id: s.step, step_number: s.step, title: s.title,
-        icon: s.icon, summary: s.summary, description: s.desc, points: s.points,
-      }))))
-  }, [])
 
   return (
     <div className="pt-16">
@@ -152,68 +138,49 @@ export default function Home() {
       {/* ══ MANUFACTURING STEPS ══ */}
       <section className="section bg-slate-50">
         <div className="container-app">
+          {/* Mobile: stacked, Desktop: 2-col */}
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
+            {/* Left info */}
+            <div>
+              <SectionHead left eyebrow="Process Guide" title="10 Steps of Garments Manufacturing"
+                subtitle="Understand the complete lifecycle of a garment order. Click each step to explore detailed workflows." />
 
-          {/* Section header */}
-          <SectionHead eyebrow="Process Guide"
-            title={`${steps.length > 0 ? steps.length : '10'}+ Steps of Garments Manufacturing`}
-            subtitle="একটি গার্মেন্টস অর্ডারের সম্পূর্ণ lifecycle বুঝুন। প্রতিটি step-এ ক্লিক করুন।" />
-
-          {/* Stats row — mobile friendly */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-8">
-            {[[Layers, steps.length || '10+', 'Total Steps'],
-              [Shield, 'QC', 'প্রতিটি স্তরে'],
-              [TrendingUp, 'SOP', 'Best Practices'],
-              [Star, 'EN+বাং', 'Bilingual']
-            ].map(([Icon, a, b]) => (
-              <div key={b} className="bg-white rounded-xl p-3 border border-slate-200 flex items-center gap-2.5">
-                <div className="w-8 h-8 bg-navy-50 rounded-lg flex items-center justify-center shrink-0">
-                  <Icon size={14} className="text-navy-600" />
-                </div>
-                <div>
-                  <div className="font-bold text-navy-800 text-sm">{a}</div>
-                  <div className="text-slate-400 text-[10px]">{b}</div>
-                </div>
+              <div className="grid grid-cols-2 gap-3 mt-6">
+                {[[Layers,'10 Steps','Full lifecycle'],[Shield,'QC Focused','Every stage'],[TrendingUp,'Industry Best','Proven methods'],[Star,'Bilingual','EN + বাং']].map(([Icon,a,b]) => (
+                  <div key={a} className="bg-white rounded-xl p-3.5 border border-slate-200 flex items-center gap-3">
+                    <div className="w-9 h-9 bg-navy-50 rounded-lg flex items-center justify-center shrink-0">
+                      <Icon size={15} className="text-navy-600" />
+                    </div>
+                    <div>
+                      <div className="font-semibold text-navy-800 text-xs sm:text-sm">{a}</div>
+                      <div className="text-slate-400 text-[11px]">{b}</div>
+                    </div>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
 
-          {/* Steps accordion — full width, mobile optimized */}
-          <div className="space-y-2">
-            {steps.length === 0 ? (
-              Array.from({ length: 3 }, (_, i) => (
-                <div key={i} className="h-16 bg-white rounded-2xl border border-slate-200 animate-pulse" />
-              ))
-            ) : (
-              steps.map((s, i) => (
-                <Step
-                  key={s.id || s.step_number}
-                  data={{
-                    step: s.step_number,
-                    title: s.title,
-                    icon: s.icon,
-                    summary: s.summary,
-                    desc: s.description,
-                    points: Array.isArray(s.points) ? s.points : [],
-                  }}
-                  open={activeStep === i}
-                  onToggle={() => setActiveStep(activeStep === i ? -1 : i)}
-                />
-              ))
-            )}
-          </div>
-
-          {/* Coming soon note if few steps */}
-          {steps.length < 10 && steps.length > 0 && (
-            <div className="mt-4 bg-orange-50 border border-orange-200 rounded-xl p-4 flex items-start gap-3">
-              <span className="text-lg shrink-0">🔧</span>
-              <div>
-                <p className="text-orange-800 text-sm font-semibold">আরো Steps আসছে…</p>
-                <p className="text-orange-700 text-xs mt-0.5">
-                  Admin panel থেকে যেকোনো সময় নতুন step যোগ করুন।
-                </p>
+              <div className="mt-6 bg-orange-50 border border-orange-200 rounded-xl p-4">
+                <p className="text-orange-800 text-sm font-semibold">🔧 Steps 4–10 coming soon</p>
+                <p className="text-orange-700 text-xs mt-1">Each step includes SOPs, defect prevention checklists, and compliance tips.</p>
               </div>
             </div>
-          )}
+
+            {/* Accordion */}
+            <div className="space-y-2.5">
+              {MFG_STEPS.map((s, i) => (
+                <Step key={s.step} data={s} open={activeStep === i}
+                  onToggle={() => setActiveStep(activeStep === i ? -1 : i)} />
+              ))}
+              {Array.from({ length: 7 }, (_, i) => (
+                <div key={i+4} className="flex items-center gap-3 px-4 py-3.5 rounded-2xl border border-dashed border-slate-200 opacity-40 bg-white">
+                  <div className="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center text-xs font-display font-bold text-slate-400">
+                    {String(i+4).padStart(2,'0')}
+                  </div>
+                  <span className="text-slate-400 text-sm">Coming soon…</span>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 

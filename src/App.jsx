@@ -18,6 +18,7 @@ import AdminLogin   from '@/pages/admin/Login'
 import Dashboard    from '@/pages/admin/Dashboard'
 import ManagePosts  from '@/pages/admin/ManagePosts'
 import PostEditor   from '@/pages/admin/PostEditor'
+import ManageSteps  from '@/pages/admin/ManageSteps'
 
 // Scroll to top on route change
 function ScrollToTop() {
@@ -71,6 +72,7 @@ export default function App() {
           <Route index element={<Dashboard />} />
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="posts"     element={<ManagePosts />} />
+          <Route path="steps"     element={<ManageSteps />} />
           <Route path="new"       element={<PostEditor />} />
           <Route path="edit/:id"  element={<PostEditor />} />
         </Route>

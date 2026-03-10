@@ -88,3 +88,52 @@ export const storageApi = {
     return data.publicUrl
   },
 }
+
+// ──────────────────────────────────────────────────────────────────
+//  Manufacturing Steps API
+// ──────────────────────────────────────────────────────────────────
+export const stepsApi = {
+  async getAll() {
+    const { data, error } = await supabase
+      .from('mfg_steps')
+      .select('*')
+      .order('step_number', { ascending: true })
+    if (error) throw error
+    return data
+  },
+
+  async getActive() {
+    const { data, error } = await supabase
+      .from('mfg_steps')
+      .select('*')
+      .eq('active', true)
+      .order('step_number', { ascending: true })
+    if (error) throw error
+    return data
+  },
+
+  async create(payload) {
+    const { data, error } = await supabase
+      .from('mfg_steps').insert([payload]).select().single()
+    if (error) throw error
+    return data
+  },
+
+  async update(id, payload) {
+    const { data, error } = await supabase
+      .from('mfg_steps').update(payload).eq('id', id).select().single()
+    if (error) throw error
+    return data
+  },
+
+  async delete(id) {
+    const { error } = await supabase.from('mfg_steps').delete().eq('id', id)
+    if (error) throw error
+  },
+
+  async reorder(id, newNum) {
+    const { error } = await supabase
+      .from('mfg_steps').update({ step_number: newNum }).eq('id', id)
+    if (error) throw error
+  },
+}

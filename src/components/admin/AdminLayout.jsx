@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { NavLink, Outlet, useNavigate, Link } from 'react-router-dom'
-import { Brain, LayoutDashboard, FileText, PenSquare, LogOut, Menu, X, ChevronRight } from 'lucide-react'
+import { Brain, LayoutDashboard, FileText, PenSquare, LogOut, Menu, X, ChevronRight, Layers } from 'lucide-react'
 import { useAuth } from '@/context/AuthContext'
 import toast from 'react-hot-toast'
 import clsx from 'clsx'
@@ -8,6 +8,7 @@ import clsx from 'clsx'
 const NAV = [
   { to: '/admin/dashboard', icon: LayoutDashboard, label: 'Dashboard' },
   { to: '/admin/posts',     icon: FileText,        label: 'Manage Posts' },
+  { to: '/admin/steps',     icon: Layers,          label: 'Mfg Steps' },
   { to: '/admin/new',       icon: PenSquare,       label: 'New Post' },
 ]
 
