@@ -1,0 +1,120 @@
+export const DUMMY_POSTS = [
+  {
+    id: 'd1', title: 'Understanding AQL 2.5 in Garment Quality Control',
+    slug: 'understanding-aql-garment-qc',
+    excerpt: 'AQL 2.5 is the global standard for garment inspection. Learn how sampling plans work and how to apply acceptance criteria during final audits.',
+    image_url: 'https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=800&q=80',
+    category: 'Quality Control', author: 'Rahman Hossain', published: true,
+    created_at: '2025-03-01T08:00:00Z',
+    content: `## What is AQL?\n\nAQL (Acceptable Quality Level) is the maximum defect percentage considered acceptable during final inspection. **AQL 2.5** means 2.5% major defects in a lot are the threshold before rejection.\n\n## Sampling Table (GIL II)\n\n| Lot Size | Sample | Accept | Reject |\n|---|---|---|---|\n| 281–500 | 50 | 3 | 4 |\n| 501–1200 | 80 | 5 | 6 |\n| 1201–3200 | 125 | 7 | 8 |\n\n## Defect Classification\n\n- **Critical (AQL 0):** Safety hazard — instant rejection\n- **Major (AQL 2.5):** Affects function or appearance\n- **Minor (AQL 4.0):** Small cosmetic issues\n\n## Practical Tips\n\nAlways pull random samples from different cartons. Document every defect with photos. Never inspect pieces that the line has pre-selected for you.`,
+  },
+  {
+    id: 'd2', title: 'Complete Guide to Fabric GSM — Testing & Standards',
+    slug: 'fabric-gsm-testing-guide',
+    excerpt: 'GSM (Grams per Square Metre) is the fundamental measurement for fabric weight. This guide covers testing methods, industry standards, and tolerances used in export garments.',
+    image_url: 'https://images.unsplash.com/photo-1586495777744-4e6232bf3628?w=800&q=80',
+    category: 'Fabric Technology', author: 'Sumaiya Akter', published: true,
+    created_at: '2025-03-05T09:00:00Z',
+    content: `## Why GSM Matters\n\nGSM determines fabric quality, durability, and garment hand-feel. Out-of-spec GSM can cause shipment rejection.\n\n## Testing Method\n\n1. Cut a 10×10 cm sample with a die cutter\n2. Weigh on a 0.001g precision balance\n3. Multiply weight (g) × 100 = GSM\n\n**Formula:** GSM = Weight(g) ÷ (Length(m) × Width(m))\n\n## GSM Reference Chart\n\n| Fabric | GSM Range |\n|---|---|\n| Sheer chiffon | 60–90 |\n| Light T-shirt | 100–140 |\n| Standard T-shirt | 150–180 |\n| Sweatshirt fleece | 250–350 |\n| Heavy denim | 340–450 |\n\n## Tolerance Standard\n\nMost buyers allow ±5% GSM tolerance. Always confirm in the tech pack.`,
+  },
+  {
+    id: 'd3', title: 'POM Measurement Best Practices for QC Inspectors',
+    slug: 'pom-measurement-best-practices',
+    excerpt: 'Point of Measure accuracy is the foundation of garment sizing compliance. Master the critical measurement checkpoints every QC inspector must know.',
+    image_url: 'https://images.unsplash.com/photo-1620812972069-bc6af22adefe?w=800&q=80',
+    category: 'POM & Measurement', author: 'Karim Ahmed', published: true,
+    created_at: '2025-03-08T10:00:00Z',
+    content: `## Key Measurement Points\n\n1. **Chest Width** — 1 inch below armhole, seam to seam\n2. **Body Length (HPS)** — High Point Shoulder to hem\n3. **Shoulder Width** — seam to seam, straight measurement\n4. **Sleeve Length** — shoulder point to cuff edge\n5. **Neck Width** — inside seam to seam\n\n## Tolerance Reference\n\n| Point | Woven | Knit |\n|---|---|---|\n| Chest Width | ±0.5 cm | ±1.0 cm |\n| Body Length | ±0.5 cm | ±1.0 cm |\n| Shoulder | ±0.3 cm | ±0.5 cm |\n\n## Common Mistakes\n\n- Measuring over seam bulk instead of flat\n- Not relaxing garment before measuring\n- Using stretched tape on knit fabrics\n- Measuring at wrong reference points`,
+  },
+  {
+    id: 'd4', title: 'Top 15 Sewing Defects: Causes and Prevention',
+    slug: 'top-15-sewing-defects',
+    excerpt: 'Sewing defects account for over 60% of garment rejections. This guide identifies the top 15 defects, their root causes, and proven prevention strategies.',
+    image_url: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=800&q=80',
+    category: 'Sewing Technology', author: 'Nasrin Begum', published: true,
+    created_at: '2025-03-10T07:00:00Z',
+    content: `## Most Common Sewing Defects\n\n### 1. Skipped Stitch\n**Cause:** Dull needle, wrong thread tension, or incorrect needle type.\n**Fix:** Replace needle every 4 hours; check thread path.\n\n### 2. Seam Puckering\n**Cause:** Incorrect tension balance or mismatched thread weight.\n**Fix:** Reduce top tension on stretch fabrics; use appropriate thread.\n\n### 3. Open Seam\n**Cause:** Insufficient seam allowance or seam opening during wash.\n**Fix:** Maintain minimum 1 cm seam allowance; reinforce stress points.\n\n### 4. Broken Stitch\n**Cause:** Thread quality issue or incorrect tension.\n**Fix:** Use certified thread; perform stitch tension audit daily.\n\n## Severity Classification\n\n| Defect | Class | Action |\n|---|---|---|\n| Broken stitch at stress point | Critical | Reject |\n| Seam puckering | Major | Rework |\n| Minor thread tails | Minor | Accept |`,
+  },
+  {
+    id: 'd5', title: 'GOTS & OEKO-TEX: Sustainable Certifications Guide',
+    slug: 'sustainable-fabric-certifications',
+    excerpt: 'GOTS, OEKO-TEX, bluesign — sustainability certifications are reshaping global garment sourcing. A practical guide for compliance teams.',
+    image_url: 'https://images.unsplash.com/photo-1622560480605-d83c853bc5c3?w=800&q=80',
+    category: 'Sustainability', author: 'Dilruba Yesmin', published: true,
+    created_at: '2025-03-12T11:00:00Z',
+    content: `## Major Certifications\n\n### GOTS\n- Covers full supply chain from field to product\n- Minimum 70% certified organic fibres required\n- Includes social compliance criteria\n\n### OEKO-TEX STANDARD 100\n- Tests 100+ harmful substances in finished fabric\n- 4 product classes based on skin contact level\n- Fastest and most widely accepted\n\n### bluesign®\n- Factory-level certification\n- Focuses on resource efficiency and chemical safety\n- Popular in outdoor and performance apparel\n\n## Comparison\n\n| Standard | Scope | Traceability |\n|---|---|---|\n| GOTS | Full chain | High |\n| OEKO-TEX 100 | Product | Low |\n| bluesign | Factory | Medium |`,
+  },
+  {
+    id: 'd6', title: 'Embroidery QC: Stitch Density & Backing Standards',
+    slug: 'embroidery-qc-standards',
+    excerpt: 'Embroidery defects account for 15% of embellishment returns. Master stitch density requirements, backing selection, and critical AQL checkpoints.',
+    image_url: 'https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=800&q=80',
+    category: 'Embroidery', author: 'Rahman Hossain', published: true,
+    created_at: '2025-03-14T08:30:00Z',
+    content: `## Key Metrics\n\n**Stitch Count vs Density**\n- Stitch count = total stitches in design\n- Density (stitches/cm²) = real quality indicator\n\n## Placement Tolerances\n\n| Location | Tolerance |\n|---|---|\n| Left chest logo | ±0.5 cm |\n| Center chest | ±0.3 cm |\n| Back panel | ±1.0 cm |\n\n## 8 AQL Checkpoints\n\n1. Design placement accuracy\n2. Thread colour (Pantone match)\n3. Stitch density uniformity\n4. Outline sharpness\n5. Backing condition\n6. Thread ends trimmed\n7. No jump stitches on face\n8. Post-wash shrinkage ≤ 3%`,
+  },
+]
+
+export const CATEGORIES = [
+  'Quality Control', 'Fabric Technology', 'POM & Measurement',
+  'Sewing Technology', 'Embroidery', 'Sustainability',
+  'Standards & Compliance', 'Production Management', 'Dyeing & Finishing',
+]
+
+export const GLOSSARY = [
+  { term: 'AQL',            bn: 'গ্রহণযোগ্য মান',   cat: 'QC',         def: 'Acceptable Quality Level — the max defect % accepted during sampling inspection.' },
+  { term: 'GSM',            bn: 'গ্রাম/বর্গমিটার',   cat: 'Fabric',     def: 'Grams per Square Metre — the standard unit of fabric weight.' },
+  { term: 'POM',            bn: 'পরিমাপ বিন্দু',     cat: 'Measurement',def: 'Point of Measure — specific location on a garment for dimensional measurement.' },
+  { term: 'HPS',            bn: 'হাই পয়েন্ট শোল্ডার',cat:'Measurement',def: 'High Point Shoulder — primary reference point for body length measurement.' },
+  { term: 'BOM',            bn: 'উপকরণ তালিকা',     cat: 'Production', def: 'Bill of Materials — complete list of all components needed to produce one unit.' },
+  { term: 'TNA',            bn: 'সময় ও কার্যক্রম',   cat: 'Production', def: 'Time and Action plan — production milestone schedule for an order.' },
+  { term: 'Pilling',        bn: 'পিলিং',             cat: 'Fabric',     def: 'Formation of small fibre balls on fabric surface from abrasion during wear.' },
+  { term: 'Seam Allowance', bn: 'সীম ভাতা',          cat: 'Sewing',     def: 'Extra fabric between seam line and raw edge. Standard is 1 cm for woven garments.' },
+  { term: 'Wicking',        bn: 'আর্দ্রতা শোষণ',    cat: 'Fabric',     def: 'Ability of fabric to draw moisture away from skin to the outer surface.' },
+  { term: 'Colorway',       bn: 'রঙের সমন্বয়',      cat: 'Design',     def: 'A specific combination of colours used in a fabric or garment design.' },
+  { term: 'GOTS',           bn: 'জিওটিএস',           cat: 'Standards',  def: 'Global Organic Textile Standard — certification for organic fibre supply chains.' },
+  { term: 'OEKO-TEX',       bn: 'ওকো-টেক্স',         cat: 'Standards',  def: 'Testing and certification verifying absence of harmful substances in textiles.' },
+  { term: 'Flat Seam',      bn: 'ফ্ল্যাট সীম',       cat: 'Sewing',     def: 'Seam where edges are butted (not overlapped), used in sportswear for comfort.' },
+  { term: 'Stitch Density', bn: 'সেলাই ঘনত্ব',       cat: 'Sewing',     def: 'Number of stitches per unit length or area. Critical for seam and embroidery quality.' },
+  { term: 'Shrinkage',      bn: 'সংকোচন',            cat: 'Fabric',     def: 'Reduction in fabric dimensions after washing. Measured as a percentage.' },
+  { term: 'Colorfast',      bn: 'রঙ দৃঢ়তা',         cat: 'Dyeing',     def: 'Resistance of fabric colour to fading under washing, light, or abrasion.' },
+]
+
+export const MFG_STEPS = [
+  {
+    step: 1, icon: '📋', title: 'Order Processing',
+    summary: 'Receiving buyer PO, confirming specs, and issuing internal order acknowledgement.',
+    desc: 'The manufacturing journey begins when a buyer places a Purchase Order (PO). This phase involves reviewing the complete order, confirming quantities per style/color/size ratio, understanding buyer requirements from the tech pack, and issuing a formal order acknowledgement.',
+    points: [
+      'Review Purchase Order (PO) for completeness and accuracy',
+      'Check style sheets, tech packs, and construction details',
+      'Confirm size breakdown and color-wise quantities',
+      'Align internal production capacity with confirmed delivery date',
+      'Issue internal Order Confirmation and assign a production order number',
+    ],
+  },
+  {
+    step: 2, icon: '🧶', title: 'Material Sourcing',
+    summary: 'Procuring fabric, trimmings, labels, and accessories against the BOM.',
+    desc: 'Once the order is confirmed, the sourcing team procures all required materials. This includes main fabric, lining, interlining, buttons, zippers, labels, tags, and all accessories. The sourcing plan must align with the production start date accounting for all supplier lead times.',
+    points: [
+      'Raise fabric requisition against approved BOM (Bill of Materials)',
+      'Source fabric from approved mills with specified GSM and composition',
+      'Order trimmings: thread, buttons, zippers, hook-and-eye, velcro',
+      'Coordinate buyer-specific labels, care labels, and hang tags',
+      'Track ETD/ETA for all incoming material shipments and resolve delays',
+    ],
+  },
+  {
+    step: 3, icon: '🏭', title: 'Production & QC',
+    summary: 'Cutting, sewing, finishing, and multi-stage quality inspection.',
+    desc: 'Production encompasses cutting, sewing, finishing, and quality inspection at every stage. Inline QC checkpoints at each operation catch defects before they compound. Pre-shipment AQL inspection is the final gate before packing.',
+    points: [
+      'Cutting: Marker making, fabric spreading, cutting, and bundle ticketing',
+      'Sewing: Assembly line production with inline QC at each operation station',
+      'Finishing: Thread trimming, pressing, spot cleaning, button attaching',
+      'End-line check: 100% visual inspection before packing table',
+      'Pre-shipment: AQL 2.5 sampling inspection by QC team or third party',
+    ],
+  },
+]
